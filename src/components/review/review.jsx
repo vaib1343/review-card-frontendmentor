@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Star } from "../../Assets/index";
 
 const ratings = [1, 2, 3, 4, 5];
 
 const Review = () => {
+    const navigate = useNavigate();
     const [state, setState] = useState(0);
     const handleClick = (number) => {
         setState(number);
@@ -31,7 +33,7 @@ const Review = () => {
                     </S.ratingBtn>
                 ))}
             </S.ratings>
-            <S.submitButton>SUBMIT</S.submitButton>
+            <S.submitButton onClick={() => navigate('/submit')}>SUBMIT</S.submitButton>
         </React.Fragment>
     );
 };
